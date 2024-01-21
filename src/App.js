@@ -3,10 +3,10 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import{
-  BrowserRouter as Router,Route,Routes
-} from "react-router-dom";
-import About from './components/About';
+// import{
+//   BrowserRouter as Router,Route,Routes
+// } from "react-router-dom";
+// import About from './components/About';
 function App() {
   const [mode,setMode] = useState('light');  //whether dark mode is enabled or not.
   const [alert,setAlert] = useState(null);
@@ -66,16 +66,20 @@ function App() {
     {/* <Navbar title = "TextUtils" aboutText = "About TextUtils"/> */}
     {/*if i give title as {3} or any number then it will show error as propType is taken as string */}
     {/* <Navbar/> */}
-    <Router>
-    <Navbar title = "TextUtils" mode = {mode} toggleMode = {toggleMode} toggleMode2 = {toggleMode2} toggleMode3 = {toggleMode3} />
+    {/* <Router> */}
+    <Navbar title = "TextUtils" aboutText="about" mode = {mode} toggleMode = {toggleMode} toggleMode2 = {toggleMode2} toggleMode3 = {toggleMode3} />
     <Alert alert={alert}/>
     <div className="container my-3">
-      <Routes>
-    <Route path='/' element={<TextForm showAlert = {showAlert} heading = 'enter the text to analyze below' mode = {mode}/>}/>
-    <Route path="/about" element = {<About/>}/>
-    </Routes>
+      {/* <Routes> */}
+    {/* <Route path='/' element={<TextForm showAlert = {showAlert} heading = 'enter the text to analyze below' mode = {mode}/>}/> */}
+
+    {/* ******** if i want to use Router for Textform then i will comment out below TextForm code and uncomment above code ********* */}
+
+    <TextForm showAlert = {showAlert} heading = 'enter the text to analyze below' mode = {mode}/>
+    {/* <Route path="/about" element = {<About/>}/> */}
+    {/* </Routes> */}
     </div>
-    </Router>
+    {/* </Router> */}
     </>
   );
 }
